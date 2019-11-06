@@ -16,6 +16,6 @@ input()
 当python解释器读取源码时，为了让它以utf8的编码读取，通常在文件开头加上两行：  
 #！/usr/bin/env python3  
 # -*- coding:utf-8 -*-  
-第一行告诉系统这是一个python可执行程序，windows会忽略，第二行告诉解释器按照utf8的编码读取，否则可能出现乱码
-
+第一行告诉系统这是一个python可执行程序，windows会忽略，第二行告诉解释器按照utf8的编码读取，否则可能出现乱码  
+**python语法采取缩进方式**
 

@@ -16,6 +16,17 @@ input()
 当python解释器读取源码时，为了让它以utf8的编码读取，通常在文件开头加上两行：  
 #！/usr/bin/env python3  
 # -*- coding:utf-8 -*-  
-第一行告诉系统这是一个python可执行程序，windows会忽略，第二行告诉解释器按照utf8的编码读取，否则可能出现乱码
-
-
+第一行告诉系统这是一个python可执行程序，windows会忽略，第二行告诉解释器按照utf8的编码读取，否则可能出现乱码  
+**格式化：使用%和format()函数格式化**  
+占位符	替换内容
+%d	整数
+%f	浮点数
+%s	字符串
+%x	十六进制整数  
+**list和tuple**  
+list是一个可变的有序表，可以往list中追加元素。apend()方法追加元素，insert()方法插入元素，pop()方法删除最后一个元素，pop(i)删除指定元素，list中的数据类型可以不同;tuple是元组，tuple是不可变的。只有一个元素的tuple在定义是需要加上，号，如：t = (2,)
+**循环**  
+1.for in 循环
+2.while 循环
+**dict和set**  
+dict相当于java中的map

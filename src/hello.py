@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf8 -*-
+'this is python'
+
+__author__="jeffrey"
 #print("hello,world");
 '''
 print("hello","world");
@@ -73,9 +78,59 @@ from builtins import input
 #     sum +=i
 # print(sum)
 
-sum1 = 0
-n =0
-while 3>1:
-    sum1=sum1+n
-    n=n+1
-print(sum1)
+# sum1 = 0
+# n =0
+# while 3>1:
+#     sum1=sum1+n
+#     n=n+1
+# print(sum1)
+
+
+# def triangles(max):
+#     N=[1]
+#     n=0
+#     while n<max:
+#         print(N)        #generator函数与普通函数的差别：在执行过程中，遇到yield就中断，下次又继续执行
+#         N.append(0)
+#         N=[N[i-1] + N[i] for i in range(len(N))]  #写法
+#         n=n+1
+# N=[1,2,1,0]
+# print(N[-1])
+# N=[N[i-1] + N[i] for i in range(len(N))]  #写法       
+# # triangles(6)   
+# 
+# print(N)  
+#    
+# n = 0
+# results = []
+# for t in triangles():
+#     results.append(t)
+#     n = n + 1
+#     if n == 3:
+#         break
+# 
+# for t in results:
+#     print(t)
+from functools import reduce
+# def charToNum(str):
+#     return int(str)
+# print(charToNum("1234"))
+
+def charToNumber(s):
+    def charToNum(str):
+        return int(str)
+    def numToNumber(x,y):
+        return x+y
+    return reduce(numToNumber,list(map(charToNum,s)))
+def charToNum(str):
+        return int(str)
+s="123456"
+print(list(map(charToNum,s)))
+
+def normalize(name):
+    name.lower()
+    name[0].upper()
+    return name[0]
+print(normalize("jeffrey"))
+
+print(normalize.__name__)

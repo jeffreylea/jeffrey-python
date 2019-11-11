@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 encoding//basic/blockchain.py=utf-8
 encoding//src/hello.py=utf8
+=======
+eclipse.preferences.version=1
+encoding//src/blockchain/blockchain0.py=utf-8
+>>>>>>> branch 'jeffrey-dev' of https://github.com/jeffreylea/

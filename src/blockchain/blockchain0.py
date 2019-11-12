@@ -5,9 +5,7 @@ import json
 from time import time
 from builtins import round
 from flask import Flask, jsonify
-import argparse
 from argparse import ArgumentParser
-from email.policy import default
 blockchain = []
 '''
 #散列函数用法

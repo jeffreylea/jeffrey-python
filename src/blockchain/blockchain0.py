@@ -5,6 +5,9 @@ import json
 from time import time
 from builtins import round
 from flask import Flask, jsonify
+import argparse
+from argparse import ArgumentParser
+from email.policy import default
 blockchain = []
 '''
 #散列函数用法
@@ -40,17 +43,29 @@ def make_a_genesis_block():
     data = "0"
     previous_hash="0"
     blockchain.append(make_a_block(index,timestamp,data, previous_hash))
+print(__name__.capitalize())
 app=Flask(__name__)
+
 @app.route("/",methods=['GET'])
 def get_blockchain():
     return jsonify(blockchain)
+
+@app.route("/say/<string:data>",methods=['GET'])
+def add_blockchain(data):
+    add_a_block(data)
+    return jsonify(blockchain)
+
+
 if __name__ == '__main__':
     make_a_genesis_block()
     add_a_block("this block 1")
     add_a_block("this block 2")
     add_a_block("this block 3")
     print(json.dumps(blockchain))
-    print(time())
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    parser=ArgumentParser()
+    parser.add_argument("-p","--port",default=8080,type=int,help="port is using")
+    args=parser.parse_args()
+    port = args.port
+    app.run(host='0.0.0.0', port=port, debug=True)
 
     

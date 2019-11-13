@@ -4,8 +4,9 @@ import hashlib as hasher
 import json
 from time import time
 from builtins import round
-from flask import Flask, jsonify
+from flask import Flask, jsonify,render_template
 from argparse import ArgumentParser
+from _operator import index
 blockchain = []
 '''
 #散列函数用法
@@ -44,7 +45,6 @@ def make_a_genesis_block():
 print(__name__.capitalize())
 app=Flask(__name__)
 
-@app.route("/",methods=['GET'])
 def get_blockchain():
     return jsonify(blockchain)
 
@@ -52,8 +52,27 @@ def get_blockchain():
 def add_blockchain(data):
     add_a_block(data)
     return jsonify(blockchain)
-
-
+@app.route("/")
+def home():
+    return render_template("index.html")
+@app.route("/blocks/last")
+def get_last_block():
+    last_block=blockchain[len(blockchain)-1]
+    return jsonify(last_block)
+@app.route("/blocks/<int:index>")
+def get_block(index):
+    if(len(blockchain)>=index):
+        block=blockchain[index]
+        return jsonify(block)
+    else:
+        return jsonify({"":""})
+@app.route("/blocks/<int:from_index>/<int:to_index>")
+def get_blocks_from_to(from_index,to_index):
+    blocks=blockchain[from_index:to_index]
+    return jsonify(blocks)
+@app.route("/blocks/all")
+def get_all_block():
+    return jsonify(blockchain)
 if __name__ == '__main__':
     make_a_genesis_block()
     add_a_block("this block 1")

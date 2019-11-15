@@ -18,6 +18,7 @@ pip install robotframework
 https://www.python.org/downloads/windows/
 2.安装robotFramework  
 pip install robotframework
+查看版本信息 robot --version
 3.安装robotframework-selenium2library  
 pip install  robotframework-selenium2library
 
@@ -40,4 +41,59 @@ https://www.cnblogs.com/yrxns/p/6676645.html
 Screenshot、Remote、Collections
 
 https://www.cnblogs.com/pachongshangdexuebi/p/7112347.html
+# 定位元素  
+在使用与web交互的关键字时，通常需要一个locator参数，改参数是用来定位元素使用的。
++ 定位器的语法  
+Selenium2Library支持根据不同的策略查找元素，比如元素id、XPath表达式或CSS选择器。可以使用前缀显式地指定策略，也可以隐式地指定策略.  
++ 默认定位策略
++ Selenium2Library 中的定位器locator
+	+ 使用id和name定位  
+	+ 使用xpath定位  
+	示例：xpath = //*[@id="app"]/div/div[3]/div/svg，一个元素的xpath简单的寻找方法是在浏览器中的调试模式，找到该元素，然后右键复制xpath
++ 明确定位策略  
+下表列出了默认支持的定位器策略。此外，还可以注册自定义定位器
+|Strategy	|Match based on	|Example |
+id	Element id.	id:example
+name	name attribute.	name:example
+identifier	Either id or name.	identifier:example
+class	Element class.	class:example
+tag	Tag name.	tag:div
+xpath	XPath expression.	xpath://div[@id="example"]
+css	CSS selector.	css:div#example
+dom	DOM expression.	dom:document.images[5]
+link	Exact text a link has.	link:The example
+partial link	Partial link text.	partial link:he ex
+sizzle	Sizzle selector provided by jQuery.	sizzle:div.example
+jquery	Same as the above.	jquery:div.example
+default	Keyword specific default behavior.	default:example	
 
+# 超时、等待和延迟
++ 超时 
+Selenium2Library包含各种关键字，这些关键字有一个可选的超时参数，该参数指定这些关键字应该等待某些事件或操作多长时间。这些关键词包括，例如，等待…关键字和与警报相关的关键字
+
++ Comment关键字
+用来注释
++ Should Be Equal As Strings 关键字
+ 如果不相等，则失败
+#  接口自动化测试  
+1. 环境安装
+pip install requests
+pip install robotframework-requests	 可以正常导入RequestsLibrary
+同时需要导出Collections
+get请求：
+step1:使用关键字 Create Session创建一个连接到服务器的host
+step2:使用get request关键字请求
+post请求：
+如果传参数类型为Content-Type=application/x-www-form-urlencoded，
+1.首先设置Content-Type=application/x-www-form-urlencoded传参类型。
+2.创建session，参数设置为第一步设置的参数
+3.使用post request关键字请求
+接口测试返回值解析：  
+从D:\Python\Python27\Lib\site-packages\requests\models.py文件中，可以找到Response类。经常用到的几个属性：
+频繁用到的：
+content: 响应body的内容，二进制编码，如果返回只有文本内容，和text差不多
+cookies：响应回写的cookies，cookieJar类对象
+headers: 响应头内容
+json(): 响应body内容，json格式
+status_code: 状态码
+text: 响应body的内容，默认unicode编码

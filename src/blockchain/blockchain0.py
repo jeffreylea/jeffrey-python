@@ -7,7 +7,10 @@ from builtins import round
 from flask import Flask, jsonify,render_template
 from argparse import ArgumentParser
 from _operator import index
+from jinja2 import nodes
+import requests
 blockchain = []
+nodes=[]
 '''
 #散列函数用法
 h=hasher.sha256("你好".encode("utf-8"))
@@ -47,7 +50,8 @@ app=Flask(__name__)
 
 def get_blockchain():
     return jsonify(blockchain)
-
+def add_node(node):
+    nodes.append(node)
 @app.route("/say/<string:data>",methods=['GET'])
 def add_blockchain(data):
     add_a_block(data)
@@ -73,6 +77,46 @@ def get_blocks_from_to(from_index,to_index):
 @app.route("/blocks/all")
 def get_all_block():
     return jsonify(blockchain)
+#查看区块链高度
+@app.route("/blocks/height")
+def get_blocks_height():
+    last_block=blockchain[len(blockchain)-1]
+    return jsonify(last_block["index"])
+def get_height():
+    last_block=blockchain[len(blockchain)-1]
+    return last_block["index"]
+#添加node节点
+@app.route("/nodes/add/<string:ip>/<string:port>",methods=['GET'])
+def add_nodes(ip,port):
+    node={"ip":ip,"port":port}
+    if node not in nodes:
+        nodes.append(node)
+    return jsonify(nodes)
+#查看所有节点
+@app.route("/nodes/all",methods=['GET'])
+def get_nodes():
+    return jsonify(nodes)
+@app.route("/blocks/sync")
+def blocks_sync():
+    for node in nodes:
+        ip = node["ip"]
+        port = node["port"]
+        url_height="http://{0}:{1}/blocks/height".format(ip, port)
+        url_blocks="http://{0}:{1}/blocks/all".format(ip, port)
+        try:
+            r_height=requests.get(url_height)
+            height=int(r_height.json())
+            self_height=get_height()
+            if self_height<height:
+                r_blocks_all=requests.get(url_blocks)
+                blockchain.clear()
+                blockchain=r_blocks_all
+                return jsonify("synced")
+            else:
+                return jsonify("no synced")
+        except:
+           return jsonify("error") 
+    return jsonify("no nodes")
 if __name__ == '__main__':
     make_a_genesis_block()
     add_a_block("this block 1")

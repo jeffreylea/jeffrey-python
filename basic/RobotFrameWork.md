@@ -3,6 +3,8 @@
 https://www.jianshu.com/p/c3a9d20db4e5
 https://www.cnblogs.com/leozhanggg/p/9643180.html
 https://www.cnblogs.com/yigui/p/8687109.html
+https://www.jianshu.com/p/0afa59b25ab1
+https://blog.csdn.net/a5650892/article/details/78075168
 安装pip工具  
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   # 下载安装脚本
 python get-pip.py    # 运行安装脚本
@@ -97,3 +99,6 @@ headers: 响应头内容
 json(): 响应body内容，json格式
 status_code: 状态码
 text: 响应body的内容，默认unicode编码
+
++ Robot Framework 接口自动化测试传token。  
+header中Authorization=Bearer ${token},“=”不要有空格，注意Bearer第一个字母是大写，我在小写的时候没有检测出来传token。

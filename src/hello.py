@@ -55,7 +55,7 @@ print(100+20);
 #     return n*fact(n-1)
 # print(fact(200))
 
-print(x * x for x in range(1, 11) if x % 2 == 0)
+# print(x * x for x in range(1, 11) if x % 2 == 0)
 # print("hello,%s,年龄：%d" % ("dafei",24))
 # print('%2d-%02d' % (100,3))
 # print('uu{0},oo{1}' .format(10, 11))
@@ -179,3 +179,28 @@ a.clear()
 a=b
 print(a)
 print(b)
+
+# def charToNumber(s):
+#     def charToNum(str):
+#         return int(str)
+#     def numToNumber(x,y):
+#         return x+y
+#     return reduce(numToNumber,list(map(charToNum,s)))
+# def charToNum(str):
+#         return int(str)
+# s="123456"
+# print(list(map(charToNum,s)))
+# 
+# def normalize(name):
+#     name.lower()
+#     name[0].upper()
+#     return name[0]
+# print(normalize("jeffrey"))
+# 
+# print(normalize.__name__)
+# sum1 = 0
+# n =0
+# while 3>1:
+#     sum1=sum1+n
+#     n=n+1
+# print(sum1)

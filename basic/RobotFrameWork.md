@@ -22,6 +22,8 @@ https://www.python.org/downloads/windows/
 2.安装robotFramework  
 pip install robotframework
 查看版本信息 robot --version
+最好设置一下系统变量，避免找不到命令，如果不设置，可以直接到对应目录下执行命令。
+命令位置:D:\Python\Python27\Scripts
 3.安装robotframework-selenium2library  
 pip install  robotframework-selenium2library
 
@@ -112,3 +114,5 @@ rebot用于合并多个报告，pybot用于执行robotframe脚本
 Windows安装完之后robotFramework之后，有pybot，ride也可以正常使用，但没有pybot命令。解决办法：在Scripts目录下加一个pybot.bat 文件 内容为
 @Echo off
 python -m robot.run %*
++ Robot frame 基本运算符
+https://blog.csdn.net/banrieen/article/details/80429319

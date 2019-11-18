@@ -21,6 +21,34 @@ ha.update("你好".encode("utf-8"))
 print(ha.hexdigest())
 print("{0}{1}".format("q", "s"))
 '''
+#验证区块链
+def validate(blocks):
+    bool = True
+    previous_index=0
+    previous_hash=0
+    for block in blocks:
+        index=block["index"]
+        hash=block["hash"]
+        if (index>0):
+            #如果区块链是衔接的
+            if (previous_index ==index-1):
+                pass
+            else:
+                bool=False
+            #如果区块链上一个hash和这个hash是对应的
+            if(previous_hash==block["previous_hash"]):
+                pass
+            else:
+                bool = False
+            if bool:
+                previous_index=index
+                previous_hash = hash
+        if (index==0):
+            previous_index=index
+            previous_hash = hash        
+            pass
+    return bool        
+    
 def hash(index,timestamp,data,previous_hash):
     sha = hasher.sha256()
     sha.update("{0}{1}{2}{3}".format(index,timestamp,data, previous_hash).encode("utf-8"))
@@ -59,6 +87,10 @@ def add_blockchain(data):
 @app.route("/")
 def home():
     return render_template("index.html")
+#信息上链
+@app.route("/post")
+def add_block():
+    pass
 @app.route("/blocks/last")
 def get_last_block():
     last_block=blockchain[len(blockchain)-1]
@@ -103,16 +135,28 @@ def blocks_sync():
         port = node["port"]
         url_height="http://{0}:{1}/blocks/height".format(ip, port)
         url_blocks="http://{0}:{1}/blocks/all".format(ip, port)
+        #尝试同步
         try:
+            #获取对方高度
             r_height=requests.get(url_height)
             height=int(r_height.json())
             self_height=get_height()
+            #如果对方高度比自己大
             if self_height<height:
                 r_blocks_all=requests.get(url_blocks)
+                blocks = r_blocks_all.json()
                 blockchain.clear()
-                blockchain=r_blocks_all
-                return jsonify("synced")
+                #对方区块链验证
+                is_validate=validate(blocks)
+                if is_validate:
+                    for block in blocks:
+                        blockchain.append(block)
+                    return jsonify("synced")
+                else:
+                    return jsonify("no validate")
+                
             else:
+                #不同步
                 return jsonify("no synced")
         except:
            return jsonify("error") 

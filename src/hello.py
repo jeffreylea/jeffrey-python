@@ -146,28 +146,36 @@ from functools import reduce
 # def charToNum(str):
 #     return int(str)
 # print(charToNum("1234"))
-
-def charToNumber(s):
-    def charToNum(str):
-        return int(str)
-    def numToNumber(x,y):
-        return x+y
-    return reduce(numToNumber,list(map(charToNum,s)))
-def charToNum(str):
-        return int(str)
-s="123456"
-print(list(map(charToNum,s)))
-
-def normalize(name):
-    name.lower()
-    name[0].upper()
-    return name[0]
-print(normalize("jeffrey"))
-
-print(normalize.__name__)
-sum1 = 0
-n =0
-while 3>1:
-    sum1=sum1+n
-    n=n+1
-print(sum1)
+# 
+# def charToNumber(s):
+#     def charToNum(str):
+#         return int(str)
+#     def numToNumber(x,y):
+#         return x+y
+#     return reduce(numToNumber,list(map(charToNum,s)))
+# def charToNum(str):
+#         return int(str)
+# s="123456"
+# print(list(map(charToNum,s)))
+# 
+# def normalize(name):
+#     name.lower()
+#     name[0].upper()
+#     return name[0]
+# print(normalize("jeffrey"))
+# 
+# print(normalize.__name__)
+# sum1 = 0
+# n =0
+# while 3>1:
+#     sum1=sum1+n
+#     n=n+1
+# print(sum1)
+a=[1,2]
+b=[3]
+print(a)
+print(b)
+a.clear()
+a=b
+print(a)
+print(b)

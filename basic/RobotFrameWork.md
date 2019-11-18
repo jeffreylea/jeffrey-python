@@ -5,6 +5,7 @@ https://www.cnblogs.com/leozhanggg/p/9643180.html
 https://www.cnblogs.com/yigui/p/8687109.html
 https://www.jianshu.com/p/0afa59b25ab1
 https://blog.csdn.net/a5650892/article/details/78075168
+http://www.voidcn.com/article/p-wftgnxif-bdn.html
 安装pip工具  
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   # 下载安装脚本
 python get-pip.py    # 运行安装脚本
@@ -76,7 +77,7 @@ Selenium2Library包含各种关键字，这些关键字有一个可选的超时�
 + Comment关键字
 用来注释
 + Should Be Equal As Strings 关键字
- 如果不相等，则失败
+ 将对象转化成string比较，如果不相等，则失败
 #  接口自动化测试  
 1. 环境安装
 pip install requests
@@ -102,3 +103,12 @@ text: 响应body的内容，默认unicode编码
 
 + Robot Framework 接口自动化测试传token。  
 header中Authorization=Bearer ${token},“=”不要有空格，注意Bearer第一个字母是大写，我在小写的时候没有检测出来传token。
++ 省略号（...）拆分多行
+如果测试数据太长，可以使用这个符号拆分多行
++ Set To Dictionary 关键字
+把给定的key-value或者字典项值添加到字典dict当中
++ pybot和rebot命令
+rebot用于合并多个报告，pybot用于执行robotframe脚本
+Windows安装完之后robotFramework之后，有pybot，ride也可以正常使用，但没有pybot命令。解决办法：在Scripts目录下加一个pybot.bat 文件 内容为
+@Echo off
+python -m robot.run %*

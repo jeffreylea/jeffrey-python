@@ -116,3 +116,11 @@ Windows安装完之后robotFramework之后，有pybot，ride也可以正常使�
 python -m robot.run %*
 + Robot frame 基本运算符
 https://blog.csdn.net/banrieen/article/details/80429319
++ robotFramework 因滚动条导致元素不可见
+首先使用Scroll Element Into View关键字将元素滚动到视图当中，再进行点击。
++ 数据库操作  
+需要用到databaselibrary，同时需要安装pymysql模块，安装方式：
+ pip install -U robotframework-databaselibrary
+ pip install pymysql
+ 使用关键字 Connect To Database Using Custom Params 连接数据库
+ query关键字查询数据库

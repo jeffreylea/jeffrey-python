@@ -109,6 +109,8 @@ header中Authorization=Bearer ${token},“=”不要有空格，注意Bearer第�
 如果测试数据太长，可以使用这个符号拆分多行
 + Set To Dictionary 关键字
 把给定的key-value或者字典项值添加到字典dict当中
++  Set Variable 关键字
+给变量设置值
 + pybot和rebot命令
 rebot用于合并多个报告，pybot用于执行robotframe脚本
 Windows安装完之后robotFramework之后，有pybot，ride也可以正常使用，但没有pybot命令。解决办法：在Scripts目录下加一个pybot.bat 文件 内容为
@@ -124,3 +126,54 @@ https://blog.csdn.net/banrieen/article/details/80429319
  pip install pymysql
  使用关键字 Connect To Database Using Custom Params 连接数据库
  query关键字查询数据库
+ 
++ 变量与常量  
+Scalar型变量用$作为标志符； List型变量用@作为标志符。
+和python一样，变量不需要特定声明，只要有初始化赋值就行。每个变量默认都是局部变量。变量的作用阈可以改变，使用set global variable 设定全局变量；使用set suite variable 设定suite级别变量。  
+除变量以外，还有些常量，主要有环境变量，数值常量，特殊字符常量，系统保留常量。其中环境变量的标志符是%，
+ RF内置库学习：
+ 资料：
+ https://robotframework.org/robotframework/
+ + BuiltIn测试库  
+ 这个库不需要手动添加，ride默认加载。这个测试库主要有以下几类关键字。  
+ 1.Convert  
+Convert To Integer：将给定的项转换成整数
+Convert To Number：将给定的值转换成浮点数
+Convert To Binary：将给定的值转换成二进制
+Convert To Octal：将给定的值转换成8进制
+Convert To Hex：将给定的值转换成16进制
+Convert To String：将给定的值转换成Unicode字符串
+Convert To Bytes：根据input_type将给定的输入转换成字节
+Convert To Boolean：将给定的项转换成Boolean值true或者false
+2.verify  
+Fail :使用给定的消息测试失败，停止测试当前案例。  
+Fatal Error： 使用给定的消息测试失败，停止所有测试，包括后面没有执行的测试案例。
+Should Not Be Empty： 验证给定项不为空
+Should Be Empty：验证给定项是空。  
+Should Not Be Equal：验证是否相等，相等会失败。  
+Should Not Be Equal As Integers：将对象转换为整数后，如果相等，则失败。  
+Should Not Be Equal As Numbers：将对象转换成数字后相等，则失败。  
+Should Not Be Equal As Strings：将对象转换成字符串后相等，则失败。  
+Should Not Be True：如果给定的条件是true，则失败
+Should Start With：如果字符串1没有以字符串2开头，则失败  
+Should Match：如果给定的字符串与给定的模式不匹配，则失败  
+Should Match Regexp：如果给定的字符串与正则表达式不匹配，则失败  
+Get Count：获取第二个参数在第一个参数出现的次数  
+Get Length：获取给定的项的长度  
+Length Should Be： 验证给定的项的长度是否正确
+3.Variables 
+变量是有作用阈的，所以这边有set test，suite，global variable来分别给不同的作用阈设置变量。
+Get Variables：获取当前作用阈内所有变量  
+Set Variable: 返回可以赋给变量的值  
+Set Variable If：根据给定条件设置变量  
+Log Variables：打印所有变量  
+Variable Should Exist： 当前范围内存在给定的变量  
+Replace Variables：用当前值替换给定文本中的变量
+4.RunKeyword  
+Run Keyword:执行给定的关键字以及关键字的参数  
+Run Keywords：按顺序执行所有的关键字  
+Wait Until Keyword Succeeds: 运行指定的关键字，如果失败则重试
+Repeat Keyword:多次执行指定的关键字
+Run Keyword And Return Status:使用给定的参数运行给定的关键字，并以布尔值的形式返回状态
+5.Control  
+与流程相关的关键字

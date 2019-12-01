@@ -76,3 +76,6 @@ c.NotebookApp.notebook_dir = 'F:\Jupyter'
 确实是一个网页版的编辑器，可以在上面新建文件，直接运行python代码，写MD文档，值得尝试一下。
 学习编写第一个人工智能教程，参考资料
 https://blog.csdn.net/jiangjunshow/article/details/81704868
+matplotlib是python的绘图库，可以和numpy一起使用，提供了一种有效的MATLAB开源替代方案。也可以和图形工具包一起使用，pyQt和wxPython。
+安装：
+https://github.com/jeffreylea/

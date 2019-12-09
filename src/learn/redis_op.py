@@ -28,6 +28,7 @@ import redis
 # print(res1)
 class CRedisOP():
     def __init__(self,p):
+        pass
     
     def test(self,ll):
         print(ll)

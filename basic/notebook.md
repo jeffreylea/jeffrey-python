@@ -21,4 +21,13 @@ http://www.visiocafe.com/
 4、sonarlint on-the-fly：即时反馈，显示当前打开文件的不规范描述
 
 5、sonarlint Issue locations ：显示问题的位置
+插件下载：
+链接：https://pan.baidu.com/s/1-sgiN7MGv_PsWYOQIJMG-g 
+提取码：m7s5 
+
+# eclipse离线安装阿里规约
+下载插件，直接将jar包复制到plugins文件夹下，重启eclipse。使用时点击需要检查的文件，右键选择阿里规则即可。
+链接：https://pan.baidu.com/s/1T60e3W1EAyMizNi4fqocMQ 
+提取码：rxsy 
+
 

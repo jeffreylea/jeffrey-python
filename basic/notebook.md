@@ -5,3 +5,6 @@
 
 Visio图形模板
 http://www.visiocafe.com/
+
+oauth2
+oauth(Open Authorization,开放授权)，OAuth2.0是OAuth1.0的延续版本，但不兼容OAuth1.0。

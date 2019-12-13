@@ -1,0 +1,46 @@
+学习robotFramework 
+1、安装python2.7.19并配置环境变量
+原来安装的python3.X版本，没有安装成功，经上网查询应该是robotFramework有些库不支持，但也有说已经支持了，
+python2.7.19之前的版本没有自带pip安装工具，为方便就安装了python2.7.19版本。为避免找不到python命令，可以把安装路径配置到环境变量中。如果不配置可以到安装路径下执行python命令。
+2.安装robotFramework  
+安装命令：pip install robotframework
+查看版本信息命令; robot --version
+3.启动ride
+ride是robotframework的图形化工具。在第二步安装robotframework时自动安装了ride。
+ride位置:D:\Python\Python27\Scripts,执行命令python ride.py启动ride。为方便启动ride，把。。\Scripts目录添加到环境变量中。
+
+以上就把robotFramework的开发环境安装配置好了。
+4、关键字库
+Robot Framework是以关键字驱动的，不同的测试用的库不同。其中内置了一些库，还有有一些扩展库，还可以自定义。内置的标准库不需要下载安装，在测试用例用到时需要需要导入。例如String、Collections标准库。标准库Builtin默认已经导入。
+具体可以使用的库可以看这里：https://robotframework.org/#libraries
+5.查看关键字F5
+使用快捷键F5调出查看关键字窗口，选择对应的库，可以看到关键字及对应的使用方法。
+6、以接口自动化测试为例
+新建工程，选择工程创建套件，再在对应的套件创建测试用例。
+需要安装关键字库：requests，安装方法：
+pip install requests
+pip install robotframework-requests
+在测试套件中导入对应的RequestsLibrary，如果没有安装或没有安装成功会显示红色。
+使用Create Session 关键字创建会话，使用Get Request关键字发送get请求并返回结果。然后根据结果判断用例是否成功。
+7.其他
+自定义关键字：robotframework可以自定义关键字，可以把一些常用的操作过程定义成关键字。避免了太多重复。
+8.常用关键字（使用时随手记录的，具体使用方法可以查看对应关键字）
++ Comment关键字
+用来注释
++ Should Be Equal As Strings 关键字
+ 将对象转化成string比较，如果不相等，则失败
++ 省略号（...）拆分多行
+如果测试数据太长，可以使用这个符号拆分多行
++ Set To Dictionary 关键字
+把给定的key-value或者字典项值添加到字典dict当中
++ pybot和rebot命令
+rebot用于合并多个报告，pybot用于执行robotframe脚本
+Windows安装完之后robotFramework之后，有pybot，ride也可以正常使用，但没有pybot命令。解决办法：在Scripts目录下加一个pybot.bat 文件 内容为
+@Echo off
+python -m robot.run %*
++ 数据库操作  
+需要用到databaselibrary，同时需要安装pymysql模块，安装方式：
+ pip install -U robotframework-databaselibrary
+ pip install pymysql
+ 使用关键字 Connect To Database Using Custom Params 连接数据库
+ query关键字查询数据库

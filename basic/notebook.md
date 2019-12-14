@@ -7,4 +7,4 @@ Visio图形模板
 http://www.visiocafe.com/
 
 oauth2
-oauth(Open Authorization,开放授权)，OAuth2.0是OAuth1.0的延续版本，但不兼容OAuth1.0。
+oauth(Open Authorization,开放授权)，OAuth2.0是OAuth1.0的延续版本，但不兼容OAuth1.0。OAuth有三种角色：用户、服务提供方、服务消费者（客户端），OAuth是为了让这三种角色互相信任。

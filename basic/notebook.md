@@ -29,5 +29,15 @@ http://www.visiocafe.com/
 下载插件，直接将jar包复制到plugins文件夹下，重启eclipse。使用时点击需要检查的文件，右键选择阿里规则即可。
 链接：https://pan.baidu.com/s/1T60e3W1EAyMizNi4fqocMQ 
 提取码：rxsy 
+OAuth2学习：
+
+jenkins学习：
+https://jenkins.io/zh/doc/book/blueocean/
+
+消息中间件学习：
+
+appolo学习：
+
+
 
 

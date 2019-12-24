@@ -37,6 +37,7 @@ https://jenkins.io/zh/doc/book/blueocean/
 消息中间件学习：
 
 appolo学习：
+![](../basic/image/无标题.png)
 
 
 

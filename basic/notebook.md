@@ -35,3 +35,10 @@ oauth(Open Authorization,开放授权)，OAuth2.0是OAuth1.0的延续版本，�
 雪花算法静态方法生成ID重复：
 在雪花算法实现类里，加了个静态方法，在这个静态方法里，创建雪花算法对象，，对象调用生成ID。在测试时发现大量的重复ID，突然很茫然。原来测的没问题啊，怎么回事？一阵查找，突然发现在这个静态方法里创建了多个对象，在每次调用这个静态方法时都创建了一个对象，根据雪花算法代码，多个对象调用方法就不能保证生成的ID唯一了。所以应该保证对象是唯一的。所以应该用到单例模式。
 单例模式：1.new一个静态变量 2、构造方法私有化 3、新建一个公共获取对象的方法。
+
+# youtube 批量上传工具
+https://www.dvdvideosoft.com/download.htm?fname=FreeYouTubeUploader.exe&ls=GuideTopLink
+
+学习数据结构网站：  
+可视化演示网站：  
+https://www.cs.usfca.edu/~galles/visualization/Algorithms.html

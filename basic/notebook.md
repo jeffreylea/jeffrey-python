@@ -31,6 +31,17 @@ oauth(Open Authorization,开放授权)，OAuth2.0是OAuth1.0的延续版本，�
 下载插件，直接将jar包复制到plugins文件夹下，重启eclipse。使用时点击需要检查的文件，右键选择阿里规则即可。
 链接：https://pan.baidu.com/s/1T60e3W1EAyMizNi4fqocMQ 
 提取码：rxsy 
+OAuth2学习：
+
+jenkins学习：
+https://jenkins.io/zh/doc/book/blueocean/
+
+消息中间件学习：
+
+appolo学习：
+![](../basic/image/无标题.png)
+
+
 
 雪花算法静态方法生成ID重复：
 在雪花算法实现类里，加了个静态方法，在这个静态方法里，创建雪花算法对象，，对象调用生成ID。在测试时发现大量的重复ID，突然很茫然。原来测的没问题啊，怎么回事？一阵查找，突然发现在这个静态方法里创建了多个对象，在每次调用这个静态方法时都创建了一个对象，根据雪花算法代码，多个对象调用方法就不能保证生成的ID唯一了。所以应该保证对象是唯一的。所以应该用到单例模式。
